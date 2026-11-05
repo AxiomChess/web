@@ -1,9 +1,14 @@
 import type { Metadata } from "next"
+import type { ReactNode } from "react"
 import { IBM_Plex_Mono, IBM_Plex_Sans, Syne } from "next/font/google"
 import Link from "next/link"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { themeInitScript } from "@/lib/theme"
 import "./globals.css"
+
+type RootLayoutProps = {
+  children: ReactNode
+}
 
 const syne = Syne({
   subsets: ["latin"],
@@ -31,7 +36,7 @@ export const metadata: Metadata = {
     "Open-source chess fair-play analysis with calibrated suspicion bands and clear methodology limits.",
 }
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang="en"
