@@ -1,0 +1,138 @@
+/*
+  AxiomChess design tokens -- Ink and Felt
+  Source of truth for values: tokens.json
+  Consumed by web (and docs screenshots guidance).
+*/
+
+:root {
+  color-scheme: light;
+
+  /* Typography */
+  --ax-font-display: "Syne", "Segoe UI", "Helvetica Neue", sans-serif;
+  --ax-font-body: "IBM Plex Sans", "Segoe UI", "Helvetica Neue", sans-serif;
+  --ax-font-mono: "IBM Plex Mono", Consolas, Menlo, monospace;
+
+  --ax-text-xs: 12px;
+  --ax-text-sm: 14px;
+  --ax-text-md: 16px;
+  --ax-text-lg: 20px;
+  --ax-text-xl: 28px;
+  --ax-text-2xl: 40px;
+  --ax-text-3xl: 56px;
+
+  /* Spacing (4-based) */
+  --ax-space-1: 4px;
+  --ax-space-2: 8px;
+  --ax-space-3: 12px;
+  --ax-space-4: 16px;
+  --ax-space-5: 24px;
+  --ax-space-6: 32px;
+  --ax-space-7: 48px;
+  --ax-space-8: 64px;
+  --ax-space-9: 96px;
+  --ax-space-10: 128px;
+
+  /* Radius */
+  --ax-radius-none: 0;
+  --ax-radius-sm: 2px;
+  --ax-radius-md: 4px;
+  --ax-radius-lg: 8px;
+
+  /* Motion */
+  --ax-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ax-duration-fast: 160ms;
+  --ax-duration-base: 280ms;
+  --ax-duration-slow: 420ms;
+
+  /* Elevation */
+  --ax-shadow-raised: 0 1px 2px rgba(26, 36, 33, 0.08);
+
+  /* Color -- light */
+  --ax-bg: #f2f4f3;
+  --ax-surface: #ffffff;
+  --ax-surface-muted: #e8ece9;
+  --ax-ink: #1a2421;
+  --ax-ink-secondary: #4a5c56;
+  --ax-ink-tertiary: #6b7f77;
+  --ax-border: #c5cec9;
+  --ax-border-strong: #8a9a92;
+  --ax-accent: #0e7a5f;
+  --ax-accent-hover: #0a624c;
+  --ax-accent-muted: #d4ede4;
+  --ax-accent-contrast: #f2f4f3;
+  --ax-focus: #0e7a5f;
+  --ax-danger: #a33b2d;
+  --ax-warning: #8a6a1f;
+  --ax-success: #0e7a5f;
+
+  /* Board -- light */
+  --ax-board-square-light: #d8dfd4;
+  --ax-board-square-dark: #5a7264;
+  --ax-board-last-move: rgba(14, 122, 95, 0.35);
+  --ax-board-selected: #0e7a5f;
+  --ax-board-check: rgba(163, 59, 45, 0.4);
+  --ax-board-coord: #4a5c56;
+}
+
+[data-theme="dark"],
+.ax-theme-dark {
+  color-scheme: dark;
+
+  --ax-shadow-raised: 0 1px 2px rgba(0, 0, 0, 0.35);
+
+  --ax-bg: #121816;
+  --ax-surface: #1c2420;
+  --ax-surface-muted: #151c19;
+  --ax-ink: #e6ede9;
+  --ax-ink-secondary: #9aaba3;
+  --ax-ink-tertiary: #6f8178;
+  --ax-border: #2e3a34;
+  --ax-border-strong: #4a5c54;
+  --ax-accent: #3db892;
+  --ax-accent-hover: #5cc9a6;
+  --ax-accent-muted: #1a3d32;
+  --ax-accent-contrast: #121816;
+  --ax-focus: #3db892;
+  --ax-danger: #e07064;
+  --ax-warning: #d4b44a;
+  --ax-success: #3db892;
+
+  --ax-board-square-light: #3a4a42;
+  --ax-board-square-dark: #24302b;
+  --ax-board-last-move: rgba(61, 184, 146, 0.35);
+  --ax-board-selected: #3db892;
+  --ax-board-check: rgba(224, 112, 100, 0.4);
+  --ax-board-coord: #9aaba3;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not(.ax-theme-light) {
+    color-scheme: dark;
+
+    --ax-shadow-raised: 0 1px 2px rgba(0, 0, 0, 0.35);
+
+    --ax-bg: #121816;
+    --ax-surface: #1c2420;
+    --ax-surface-muted: #151c19;
+    --ax-ink: #e6ede9;
+    --ax-ink-secondary: #9aaba3;
+    --ax-ink-tertiary: #6f8178;
+    --ax-border: #2e3a34;
+    --ax-border-strong: #4a5c54;
+    --ax-accent: #3db892;
+    --ax-accent-hover: #5cc9a6;
+    --ax-accent-muted: #1a3d32;
+    --ax-accent-contrast: #121816;
+    --ax-focus: #3db892;
+    --ax-danger: #e07064;
+    --ax-warning: #d4b44a;
+    --ax-success: #3db892;
+
+    --ax-board-square-light: #3a4a42;
+    --ax-board-square-dark: #24302b;
+    --ax-board-last-move: rgba(61, 184, 146, 0.35);
+    --ax-board-selected: #3db892;
+    --ax-board-check: rgba(224, 112, 100, 0.4);
+    --ax-board-coord: #9aaba3;
+  }
+}

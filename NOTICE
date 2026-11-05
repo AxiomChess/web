@@ -1,0 +1,15 @@
+AxiomChess web -- third-party notices
+
+Next.js, React, React DOM, Tailwind CSS, and related tooling:
+  SPDX: MIT (verified via npm registry package metadata at integrate time).
+
+Design tokens (`styles/tokens.css`):
+  Source: AxiomChess/design tokens (Ink and Felt).
+  Sync with `pnpm tokens:sync` when the sibling design checkout is available.
+  First-party AxiomChess design tokens: MIT.
+
+Fonts loaded via `next/font/google`:
+  Syne -- SIL Open Font License 1.1 (OFL-1.1), via Google Fonts.
+  IBM Plex Sans -- SIL Open Font License 1.1 (OFL-1.1), via Google Fonts.
+  IBM Plex Mono -- SIL Open Font License 1.1 (OFL-1.1), via Google Fonts.
+  Upstream catalog: https://fonts.google.com/
