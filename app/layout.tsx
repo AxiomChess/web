@@ -60,7 +60,16 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <Link className="shell-brand" href="/" aria-label="AxiomChess home">
               AxiomChess
             </Link>
-            <ThemeToggle />
+            <nav className="shell-nav" aria-label="Primary">
+              <Link
+                className="shell-nav-link"
+                href="/analyze"
+                aria-label="Analyze a finished game"
+              >
+                Analyze
+              </Link>
+              <ThemeToggle />
+            </nav>
           </header>
           {children}
         </div>
