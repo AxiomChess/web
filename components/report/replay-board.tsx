@@ -2,9 +2,9 @@
 
 import { useState, type KeyboardEvent } from "react"
 import type { Square } from "chess.js"
+import { ChessPiece } from "@/components/chess-piece"
 import {
   FILES_LABELS,
-  GLYPH,
   type ReplayModel,
   type ReplayPiece,
 } from "@/lib/report/pgn-replay"
@@ -159,15 +159,13 @@ export const ReplayBoard = ({
                 onKeyDown={(event) => handleSquareKeyDown(event, file, rank)}
               >
                 {piece ? (
-                  <span
+                  <ChessPiece
                     key={`${ply}-${piece.square}`}
-                    className={`report-board-piece is-${piece.color}${
-                      placedKey === piece.square ? " is-placed" : ""
-                    }`}
-                    aria-hidden="true"
-                  >
-                    {GLYPH[piece.color][piece.kind]}
-                  </span>
+                    color={piece.color}
+                    kind={piece.kind}
+                    className="report-board-piece"
+                    placed={placedKey === piece.square}
+                  />
                 ) : null}
               </button>
             )

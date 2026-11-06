@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/AxiomChess/design/main/assets/brand/banner.svg" alt="AxiomChess" width="880" />
+</p>
+
 # web
 
 Marketing site, analyzer UI, and report pages for AxiomChess (Next.js App Router).
@@ -8,6 +12,7 @@ Marketing site, analyzer UI, and report pages for AxiomChess (Next.js App Router
 - Tailwind CSS 4 (via `@tailwindcss/turbopack`)
 - Design tokens from `AxiomChess/design` (Ink and Felt), synced into `styles/tokens.css`
 - Display face Syne; body IBM Plex Sans; mono IBM Plex Mono (`next/font/google`, OFL-1.1)
+- Original geometric board pieces (`components/chess-piece.tsx`, MIT)
 
 ## Scripts
 
@@ -33,6 +38,10 @@ Light and dark share the same CSS variable names. Preference cycles light / dark
 Set `NEXT_PUBLIC_API_BASE_URL` (see `.env.example`) to a running AxiomChess API. Private games are rejected with a clear error; reports use suspicion bands only and never a raw accusation.
 
 Board replay uses `chess.js` (BSD-2-Clause) against the normalized PGN returned by `GET /v1/analyses/{id}`.
+
+## Docs
+
+https://axiomchess.github.io/docs/
 
 ## License
 

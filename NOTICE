@@ -18,3 +18,7 @@ chess.js (board replay / PGN load):
   SPDX: BSD-2-Clause
   Verified: npm package metadata + https://raw.githubusercontent.com/jhlywa/chess.js/master/LICENSE
   Version pin: 1.4.0
+
+Board piece SVGs (`components/chess-piece.tsx`):
+  Original AxiomChess geometric silhouettes.
+  SPDX: MIT (first-party).

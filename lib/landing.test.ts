@@ -3,8 +3,8 @@ import { join } from "node:path"
 import { describe, expect, it } from "vitest"
 
 const pageSource = readFileSync(join(process.cwd(), "app", "page.tsx"), "utf8")
-const boardSource = readFileSync(
-  join(process.cwd(), "components", "hero-board.tsx"),
+const reportSource = readFileSync(
+  join(process.cwd(), "components", "hero-report.tsx"),
   "utf8",
 )
 const cssSource = readFileSync(
@@ -32,19 +32,20 @@ describe("landing page (T22)", () => {
     expect(pageSource).not.toMatch(/[\u{1F300}-\u{1FAFF}]/u)
   })
 
-  it("uses a product board visual with board theme hooks", () => {
-    expect(pageSource).toContain("HeroBoard")
-    expect(boardSource).toContain("is-last-move")
-    expect(cssSource).toContain("var(--ax-board-square-light)")
-    expect(cssSource).toContain("var(--ax-board-square-dark)")
-    expect(cssSource).toContain("var(--ax-board-last-move)")
+  it("uses a product report visual instead of a hero board", () => {
+    expect(pageSource).toContain("HeroReport")
+    expect(pageSource).not.toContain("HeroBoard")
+    expect(reportSource).toContain("elevated")
+    expect(reportSource).toContain("Top-1 match")
+    expect(cssSource).toContain("hero-report")
+    expect(cssSource).toContain("animation: band-reveal")
   })
 
-  it("limits landing motion to brand-settle and piece-place", () => {
+  it("limits landing motion to brand-settle and band-reveal", () => {
     expect(cssSource).toContain("@keyframes brand-settle")
-    expect(cssSource).toContain("@keyframes piece-place")
+    expect(cssSource).toContain("@keyframes band-reveal")
     expect(cssSource).toContain("animation: brand-settle")
-    expect(cssSource).toContain("animation: piece-place")
+    expect(cssSource).toContain("@keyframes piece-place")
     expect(cssSource).not.toContain("glow")
     expect(cssSource.toLowerCase()).not.toContain("purple")
     expect(cssSource).not.toContain("rounded-full")
