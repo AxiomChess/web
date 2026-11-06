@@ -136,8 +136,10 @@ export const StatusPanel = ({ apiBaseUrl }: StatusPanelProps) => {
           <p className="status-badge status-badge-down">API unavailable</p>
           <p className="analyze-error">{state.message}</p>
           <p className="analyze-muted">
-            Analyze and report pages will not work until the API responds.
-            Checked at{" "}
+            Analyze and report pages will not work until the API responds at{" "}
+            <span className="analyze-mono">{endpointBase}</span>. Start the
+            api package locally (<code>pnpm start</code>, default port 3000) and
+            set <code>NEXT_PUBLIC_API_BASE_URL</code> to match. Checked at{" "}
             <span className="analyze-mono">{state.checkedAt}</span>.
           </p>
         </div>

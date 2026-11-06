@@ -208,6 +208,7 @@ button:focus-visible {
   background: var(--ax-accent);
   color: var(--ax-accent-contrast);
   border-color: var(--ax-accent);
+  min-width: 10.5rem;
 }
 
 .landing-cta-primary:hover {

@@ -15,8 +15,8 @@ export type ApiClientOptions = {
 
 const DEFAULT_BASE =
   typeof process !== "undefined"
-    ? (process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://127.0.0.1:8787")
-    : "http://127.0.0.1:8787"
+    ? (process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://127.0.0.1:3000")
+    : "http://127.0.0.1:3000"
 
 const trimSlash = (value: string): string => value.replace(/\/+$/u, "")
 
