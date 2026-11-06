@@ -1,7 +1,6 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/AxiomChess/design/main/assets/brand/banner.svg" alt="AxiomChess" width="880" />
+  <img src="https://raw.githubusercontent.com/AxiomChess/design/main/assets/brand/banner.svg" alt="AxiomChess" width="920" />
 </p>
-
 # web
 
 Marketing site, analyzer UI, and report pages for AxiomChess (Next.js App Router).

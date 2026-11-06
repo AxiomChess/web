@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="AxiomChess">
+  <title>AxiomChess</title>
+  <rect width="128" height="128" rx="16" fill="#121816"/>
+  <rect x="22" y="22" width="84" height="84" fill="#1c2420"/>
+  <g fill="#24302b">
+    <rect x="22" y="22" width="21" height="21"/>
+    <rect x="64" y="22" width="21" height="21"/>
+    <rect x="43" y="43" width="21" height="21"/>
+    <rect x="85" y="43" width="21" height="21"/>
+    <rect x="22" y="64" width="21" height="21"/>
+    <rect x="64" y="64" width="21" height="21"/>
+    <rect x="43" y="85" width="21" height="21"/>
+    <rect x="85" y="85" width="21" height="21"/>
+  </g>
+  <circle cx="64" cy="64" r="26" fill="none" stroke="#3db892" stroke-width="5"/>
+  <path d="M64 46v36M52 58h24" stroke="#3db892" stroke-width="5" stroke-linecap="square"/>
+</svg>

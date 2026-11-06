@@ -8,6 +8,10 @@ const privacyPage = readFileSync(
   "utf8",
 )
 const layout = readFileSync(join(root, "app", "layout.tsx"), "utf8")
+const footer = readFileSync(
+  join(root, "components", "site-footer.tsx"),
+  "utf8",
+)
 const docsLib = readFileSync(join(root, "lib", "docs.ts"), "utf8")
 
 describe("privacy notice (T27)", () => {
@@ -21,8 +25,9 @@ describe("privacy notice (T27)", () => {
   })
 
   it("links privacy from the shell footer and docs links", () => {
-    expect(layout).toContain('href="/privacy"')
-    expect(layout).toContain("shell-footer")
+    expect(layout).toContain("SiteFooter")
+    expect(footer).toContain('href="/privacy"')
+    expect(footer).toContain("site-footer")
     expect(docsLib).toContain("privacy.html")
   })
 

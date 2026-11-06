@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import type { ReactNode } from "react"
 import { IBM_Plex_Mono, IBM_Plex_Sans, Syne } from "next/font/google"
 import Link from "next/link"
+import { SiteFooter } from "@/components/site-footer"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { themeInitScript } from "@/lib/theme"
 import "./globals.css"
@@ -31,9 +32,15 @@ const ibmPlexMono = IBM_Plex_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "AxiomChess",
+  title: {
+    default: "AxiomChess",
+    template: "%s | AxiomChess",
+  },
   description:
-    "Open-source chess fair-play analysis with calibrated suspicion bands and clear methodology limits.",
+    "Open-source chess fair-play analysis with calibrated suspicion bands and clear methodology limits. Finished games only.",
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+  },
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
@@ -58,6 +65,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <div className="shell">
           <header className="shell-header">
             <Link className="shell-brand" href="/" aria-label="AxiomChess home">
+              <span className="shell-brand-mark" aria-hidden="true" />
               AxiomChess
             </Link>
             <nav className="shell-nav" aria-label="Primary">
@@ -86,15 +94,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </nav>
           </header>
           {children}
-          <footer className="shell-footer">
-            <Link
-              className="shell-footer-link"
-              href="/privacy"
-              aria-label="AxiomChess privacy notice"
-            >
-              Privacy
-            </Link>
-          </footer>
+          <SiteFooter />
         </div>
       </body>
     </html>
