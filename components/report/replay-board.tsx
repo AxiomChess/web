@@ -1,6 +1,6 @@
 "use client"
 
-import { useId, useState, type KeyboardEvent } from "react"
+import { useState, type KeyboardEvent } from "react"
 import type { Square } from "chess.js"
 import {
   FILES_LABELS,
@@ -14,6 +14,9 @@ type ReplayBoardProps = {
   ply: number
   onPlyChange: (ply: number) => void
 }
+
+const BOARD_LABEL_ID = "report-board-heading"
+const BOARD_LIVE_ID = "report-board-live"
 
 const squareKey = (file: number, rank: number): string =>
   `${FILES_LABELS[file]}${rank + 1}`
@@ -33,8 +36,6 @@ export const ReplayBoard = ({
   ply,
   onPlyChange,
 }: ReplayBoardProps) => {
-  const labelId = useId()
-  const liveId = useId()
   const maxPly = model.moves.length
   const pieces = model.positions[ply] ?? []
   const last = model.lastMoveByPly[ply] ?? null
@@ -108,12 +109,12 @@ export const ReplayBoard = ({
   }
 
   return (
-    <section className="report-board-panel" aria-labelledby={labelId}>
+    <section className="report-board-panel" aria-labelledby={BOARD_LABEL_ID}>
       <div className="report-board-header">
-        <h2 id={labelId} className="report-section-title">
+        <h2 id={BOARD_LABEL_ID} className="report-section-title">
           Board replay
         </h2>
-        <p id={liveId} className="report-live" aria-live="polite">
+        <p id={BOARD_LIVE_ID} className="report-live" aria-live="polite">
           {liveText}
         </p>
       </div>
@@ -123,7 +124,7 @@ export const ReplayBoard = ({
         role="application"
         tabIndex={0}
         aria-label="Chess board replay. Use left and right arrow keys to change ply. Home and End jump to start or end."
-        aria-describedby={liveId}
+        aria-describedby={BOARD_LIVE_ID}
         onKeyDown={handleBoardKeyDown}
       >
         <div className="report-board-grid">

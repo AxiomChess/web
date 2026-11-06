@@ -76,6 +76,7 @@ describe("report pages (T24)", () => {
     expect(reportView).toContain("MoveTable")
     expect(reportView).toContain("methodologyNote")
     expect(reportView).toContain("falsePositiveWarning")
+    expect(reportView).toContain('FIXTURE_ANALYSIS_ID = "fixture"')
     expect(replayBoard).toContain("ArrowRight")
     expect(replayBoard).toContain("ArrowLeft")
     expect(moveTable).toContain("<table")

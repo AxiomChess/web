@@ -9,8 +9,25 @@ import { SuspicionBandPanel } from "@/components/report/suspicion-band"
 import { createApiClient } from "@/lib/api/client"
 import { messageForApiError } from "@/lib/api/messages"
 import { ApiClientError, type AnalysisSnapshot } from "@/lib/api/types"
+import { FIXTURE_PGN, FIXTURE_RESULT } from "@/lib/report/fixture"
 import { parseAnalysisResultV1 } from "@/lib/report/parse-result"
 import { buildReplayModel } from "@/lib/report/pgn-replay"
+
+/** Offline visual-QA / demo snapshot; not a live analysis id. */
+export const FIXTURE_ANALYSIS_ID = "fixture"
+
+const FIXTURE_SNAPSHOT: AnalysisSnapshot = {
+  id: FIXTURE_ANALYSIS_ID,
+  status: "completed",
+  enginePolicyId: "engine-v1",
+  normalizedPgn: FIXTURE_PGN,
+  result: FIXTURE_RESULT,
+  error: null,
+  createdAt: "2026-11-06T00:00:00.000Z",
+  updatedAt: "2026-11-06T00:00:00.000Z",
+  completedAt: "2026-11-06T00:00:00.000Z",
+  expiresAt: "2099-01-01T00:00:00.000Z",
+}
 
 type ReportViewProps = {
   analysisId: string
@@ -30,6 +47,18 @@ export const ReportView = ({ analysisId, apiBaseUrl }: ReportViewProps) => {
   useEffect(() => {
     let cancelled = false
     let timer: ReturnType<typeof setTimeout> | null = null
+
+    if (analysisId === FIXTURE_ANALYSIS_ID) {
+      // Defer so SSR/hydration stay on the loading shell (no sync setState in effect).
+      void Promise.resolve().then(() => {
+        if (cancelled) return
+        setSnapshot(FIXTURE_SNAPSHOT)
+        setErrorMessage(null)
+      })
+      return () => {
+        cancelled = true
+      }
+    }
 
     const load = async () => {
       try {
