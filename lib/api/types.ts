@@ -1,5 +1,11 @@
 export type SupportedSiteId = "lichess" | "chesscom"
 
+export type HealthResponse = {
+  status: "ok"
+  service: "axiomchess-api"
+  apiVersion: "v1"
+}
+
 export type ApiErrorBody = {
   code: string
   message: string

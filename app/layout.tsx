@@ -68,6 +68,20 @@ export default function RootLayout({ children }: RootLayoutProps) {
               >
                 Analyze
               </Link>
+              <Link
+                className="shell-nav-link"
+                href="/docs"
+                aria-label="AxiomChess documentation"
+              >
+                Docs
+              </Link>
+              <Link
+                className="shell-nav-link"
+                href="/status"
+                aria-label="AxiomChess API status"
+              >
+                Status
+              </Link>
               <ThemeToggle />
             </nav>
           </header>

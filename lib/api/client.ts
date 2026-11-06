@@ -3,6 +3,7 @@ import {
   type AnalysisSnapshot,
   type AnalyzeQueuedResponse,
   type ApiErrorBody,
+  type HealthResponse,
   type SupportedSiteId,
   type UsernameListResponse,
 } from "./types"
@@ -83,6 +84,10 @@ export const createApiClient = (options: ApiClientOptions = {}) => {
 
   return {
     baseUrl,
+
+    getHealth: (): Promise<HealthResponse> => {
+      return requestJson<HealthResponse>("/v1/health")
+    },
 
     analyzeByUrl: (url: string): Promise<AnalyzeQueuedResponse> => {
       return requestJson<AnalyzeQueuedResponse>("/v1/analyze/url", {
