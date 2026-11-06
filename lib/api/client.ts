@@ -13,12 +13,17 @@ export type ApiClientOptions = {
   fetchImpl?: typeof fetch
 }
 
-const DEFAULT_BASE =
-  typeof process !== "undefined"
-    ? (process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://127.0.0.1:3000")
-    : "http://127.0.0.1:3000"
+/**
+ * Empty base = same-origin `/v1/*` (Next.js rewrites to API_PROXY_TARGET).
+ * Prefer this locally so the browser never has to call a cross-origin localhost port.
+ */
+const envBase =
+  typeof process !== "undefined" ? process.env.NEXT_PUBLIC_API_BASE_URL : undefined
+const DEFAULT_BASE = envBase === undefined ? "" : envBase
 
 const trimSlash = (value: string): string => value.replace(/\/+$/u, "")
+
+const REQUEST_TIMEOUT_MS = 45_000
 
 const parseErrorBody = async (
   response: Response,
@@ -49,9 +54,12 @@ export const createApiClient = (options: ApiClientOptions = {}) => {
     init?: RequestInit,
   ): Promise<T> => {
     let response: Response
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS)
     try {
       response = await fetchImpl(`${baseUrl}${path}`, {
         ...init,
+        signal: controller.signal,
         headers: {
           accept: "application/json",
           ...(init?.body ? { "content-type": "application/json" } : {}),
@@ -64,6 +72,8 @@ export const createApiClient = (options: ApiClientOptions = {}) => {
         message: "Network request to AxiomChess API failed",
         status: 0,
       })
+    } finally {
+      clearTimeout(timeoutId)
     }
 
     if (!response.ok) {

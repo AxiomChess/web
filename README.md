@@ -34,7 +34,7 @@ Light and dark share the same CSS variable names. Preference cycles light / dark
 - `/u/[site]/[username]` -- recent public games for `lichess` or `chesscom`
 - `/report/[id]` -- board replay, move table, custom charts, suspicion band + methodology
 
-Local analyze needs a running API. Default: `NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:3000` (matches api `PORT` default). Copy `.env.example` to `.env.local`, then in sibling `api`: `pnpm build && pnpm start`. Private games are rejected with a clear error; reports use suspicion bands only and never a raw accusation.
+Local analyze needs a running API (`api`: `pnpm build && pnpm start`, default port 3000). By default the web app leaves `NEXT_PUBLIC_API_BASE_URL` empty and proxies browser `/v1/*` calls to `API_PROXY_TARGET` (see `.env.example`), so the browser stays same-origin. Private games are rejected with a clear error; reports use suspicion bands only and never a raw accusation.
 
 Board replay uses `chess.js` (BSD-2-Clause) against the normalized PGN returned by `GET /v1/analyses/{id}`.
 

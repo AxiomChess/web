@@ -24,7 +24,7 @@ const MESSAGE_BY_CODE: Record<string, string> = {
   upstream_error:
     "The chess site returned an error. Try again later.",
   network_error:
-    "Could not reach the AxiomChess API at the configured base URL (default http://127.0.0.1:3000). Start the api package, then retry.",
+    "Could not reach the AxiomChess API. Start the api package (default http://127.0.0.1:3000), confirm /status is green, then retry.",
 }
 
 export const messageForApiError = (error: ApiClientError): string => {
