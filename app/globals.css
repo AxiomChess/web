@@ -335,6 +335,24 @@ button:focus-visible {
   color: var(--ax-accent);
 }
 
+.shell-footer {
+  margin-top: auto;
+  padding: var(--ax-space-4) var(--ax-space-5);
+  border-top: 1px solid var(--ax-border);
+  background: var(--ax-surface);
+}
+
+.shell-footer-link {
+  color: var(--ax-ink-secondary);
+  text-decoration: none;
+  font-size: var(--ax-text-sm);
+  font-weight: 500;
+}
+
+.shell-footer-link:hover {
+  color: var(--ax-accent);
+}
+
 .theme-toggle {
   appearance: none;
   border: 1px solid var(--ax-border-strong);

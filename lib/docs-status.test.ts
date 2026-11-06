@@ -31,6 +31,7 @@ describe("docs and status routes (T25)", () => {
     expect(docsPage).toContain("DOCS_LINKS")
     expect(docsLib).toContain("https://axiomchess.github.io/docs/")
     expect(docsLib).toContain("ethics.html")
+    expect(docsLib).toContain("privacy.html")
     expect(docsLib).toContain("api-overview.html")
     expect(docsLib).toContain("supported-sites.html")
     expect(DOCS_LINKS.some((link) => link.href === DOCS_SITE_URL)).toBe(true)

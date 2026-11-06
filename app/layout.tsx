@@ -86,6 +86,15 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </nav>
           </header>
           {children}
+          <footer className="shell-footer">
+            <Link
+              className="shell-footer-link"
+              href="/privacy"
+              aria-label="AxiomChess privacy notice"
+            >
+              Privacy
+            </Link>
+          </footer>
         </div>
       </body>
     </html>

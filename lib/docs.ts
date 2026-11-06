@@ -13,6 +13,12 @@ export const DOCS_LINKS = [
       "Hard limits: documented public endpoints only, no private-game access.",
   },
   {
+    href: `${DOCS_SITE_URL}privacy.html`,
+    label: "Privacy notice",
+    description:
+      "What is stored, 30-day retention default, and analysis erasure.",
+  },
+  {
     href: `${DOCS_SITE_URL}api-overview.html`,
     label: "API reference",
     description: "Routes, auth quotas, and ethics constraints for integrators.",

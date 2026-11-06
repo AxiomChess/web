@@ -14,6 +14,7 @@
     "start": "next start",
     "lint": "eslint . && tsc --noEmit --pretty false",
     "test": "vitest run",
+    "secrets:scan": "node scripts/scan-secrets.mjs",
     "tokens:sync": "node scripts/sync-tokens.mjs",
     "typecheck": "tsc --noEmit --pretty false"
   },
