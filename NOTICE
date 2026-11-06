@@ -13,3 +13,8 @@ Fonts loaded via `next/font/google`:
   IBM Plex Sans -- SIL Open Font License 1.1 (OFL-1.1), via Google Fonts.
   IBM Plex Mono -- SIL Open Font License 1.1 (OFL-1.1), via Google Fonts.
   Upstream catalog: https://fonts.google.com/
+
+chess.js (board replay / PGN load):
+  SPDX: BSD-2-Clause
+  Verified: npm package metadata + https://raw.githubusercontent.com/jhlywa/chess.js/master/LICENSE
+  Version pin: 1.4.0

@@ -39,11 +39,73 @@ export type UsernameListResponse = {
   }[]
 }
 
+export type SuspicionBand = "low" | "elevated" | "high" | "inconclusive"
+
+export type AnalysisResultV1 = {
+  version: "v1"
+  analyzedAt: string
+  engine: {
+    policyId: "engine-v1"
+    multiPv: 3
+    depth: number
+    threads: number
+    hashMb: number
+  }
+  calibrationPolicyId: "calibration-v1"
+  features: {
+    book: {
+      bookId: string
+      bookPlyCount: number
+      noveltyPly: number | null
+    }
+    match: {
+      top1Rate: number
+      top3Rate: number
+      top1RateWhite: number
+      top1RateBlack: number
+      top3RateWhite: number
+      top3RateBlack: number
+      usablePlies: number
+      usablePliesWhite: number
+      usablePliesBlack: number
+    }
+    cpl: {
+      average: number
+      median: number
+      p90: number
+      averageWhite: number
+      averageBlack: number
+      values: number[]
+    }
+    timing: {
+      meanMoveTimeSec: number
+      medianMoveTimeSec: number
+      fastHighMatchStreakMax: number
+      fastMoveThresholdSec: number
+      moveTimesSec: number[]
+    } | null
+  }
+  suspicion: {
+    score: number
+    uncertainty: {
+      low: number
+      high: number
+      halfWidth: number
+    }
+    band: SuspicionBand
+  }
+  methodologyNote: string
+  falsePositiveWarning: string
+  featuresUsed: string[]
+  sampleSizeCaveats: string[]
+}
+
 export type AnalysisSnapshot = {
   id: string
   status: string
   enginePolicyId: string
-  result: unknown
+  normalizedPgn: string
+  result: AnalysisResultV1 | null | unknown
   error: { code: string; message: string } | null
   createdAt: string
   updatedAt: string
